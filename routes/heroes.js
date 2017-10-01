@@ -5,11 +5,11 @@ const knex = require('../db/knex');
 
 router.get('/', (req, res, next) => {
   if (req.query.name) {
-    // for query string, to search by name, return only names
+    // for query string, to search by name
     let query = `%${req.query.name}%`.toLowerCase();
     knex('hero')
       .whereRaw("LOWER(name) LIKE ?", query)
-      .select('name')
+      // .select('name')
       .then((heroes) => {
         res.status(200).json({data: heroes});
       })
