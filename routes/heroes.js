@@ -4,7 +4,21 @@ const router = express.Router();
 const knex = require('../db/knex');
 
 router.get('/', (req, res, next) => {
-  knex('hero')
+  if (req.query.name) {
+    // for query string, to search by name, return only names
+    let query = `%${req.query.name}%`.toLowerCase();
+    knex('hero')
+      .whereRaw("LOWER(name) LIKE ?", query)
+      .select('name')
+      .then((heroes) => {
+        res.status(200).json({data: heroes});
+      })
+      .catch((err) => {
+        next(err);
+      });
+  } else {
+    // return all heroes
+    knex('hero')
     .orderBy('id')
     .then((heroes) => {
       res.status(200).json({data: heroes});
@@ -12,8 +26,10 @@ router.get('/', (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+  }
 });
 
+// POST new hero
 router.post('/', (req, res, next) => {
   let newHero = req.body;
   knex('hero')
@@ -26,6 +42,7 @@ router.post('/', (req, res, next) => {
     });
 });
 
+// GET hero by id
 router.get('/:id', (req, res, next) => {
   let id = req.params.id;
   knex('hero')
@@ -44,6 +61,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+// DELETE hero by id
 router.delete('/:id', (req, res, next) => {
   let id = req.params.id;
   let deletedHero;
@@ -74,6 +92,7 @@ router.delete('/:id', (req, res, next) => {
     });
 });
 
+// PATCH hero by id
 router.patch('/:id', (req, res, next) => {
   let id = req.params.id;
   let updatedHero = req.body;
