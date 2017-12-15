@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -16,13 +17,22 @@ app.use(function(req, res, next) {
 });
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+// hide dist and node modules
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 // heroes routes
 app.use('/api/heroes', heroes);
+
+// to serve index.html file, needs to be below any API calls
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'dist')})
+})
 
 // fallthough in case no other routes are matched
 app.use((_req, res) => {
