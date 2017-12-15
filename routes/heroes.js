@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
   if (req.query.name) {
     // for query string, to search by name
     let query = `%${req.query.name}%`.toLowerCase();
-    knex('hero')
+    knex('heroes')
       .whereRaw("LOWER(name) LIKE ?", query)
       // .select('name')
       .then((heroes) => {
@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
       });
   } else {
     // return all heroes
-    knex('hero')
+    knex('heroes')
     .orderBy('id')
     .then((heroes) => {
       res.status(200).json({data: heroes});
@@ -32,7 +32,7 @@ router.get('/', (req, res, next) => {
 // POST new hero
 router.post('/', (req, res, next) => {
   let newHero = req.body;
-  knex('hero')
+  knex('heroes')
     .insert({ name: newHero.name}, '*')
     .then((hero) => {
       res.status(200).json({data: hero[0]});
@@ -45,7 +45,7 @@ router.post('/', (req, res, next) => {
 // GET hero by id
 router.get('/:id', (req, res, next) => {
   let id = req.params.id;
-  knex('hero')
+  knex('heroes')
     .where({
       id: id
     })
@@ -66,7 +66,7 @@ router.delete('/:id', (req, res, next) => {
   let id = req.params.id;
   let deletedHero;
   // GET hero to be deleted for returning
-  knex('hero')
+  knex('heroes')
     .where({
       id: id
     })
@@ -74,7 +74,7 @@ router.delete('/:id', (req, res, next) => {
     .then((hero) => {
       deletedHero = hero;
       // delete hero after it's been stored
-      knex('hero')
+      knex('heroes')
       .where({
         id: id
       })
@@ -96,7 +96,7 @@ router.delete('/:id', (req, res, next) => {
 router.patch('/:id', (req, res, next) => {
   let id = req.params.id;
   let updatedHero = req.body;
-  knex('hero')
+  knex('heroes')
     .where({
       id: id
     })
@@ -105,7 +105,7 @@ router.patch('/:id', (req, res, next) => {
       if (!hero) {
         return next();
       }
-      return knex('hero').where({ id: id }).update(updatedHero, '*');
+      return knex('heroes').where({ id: id }).update(updatedHero, '*');
     })
     .then((hero) => {
       res.status(200).json({data: hero[0]});
