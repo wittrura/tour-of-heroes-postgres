@@ -7,7 +7,11 @@ exports.seed = function(knex, Promise) {
       return knex('heroes').insert([
         {name: 'Batman'},
         {name: 'Wolverine'},
-        {name: 'Mintberry Crunch'}
+        {name: 'Mintberry Crunch'},
+        {name: 'Tupperware'},
+        {name: 'Dogwelder'},
+        {name: 'Vibe'},
+        {name: 'Leather Boy'}
       ]);
     });
 };
