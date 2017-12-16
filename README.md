@@ -11,17 +11,33 @@ It is meant to show some of the common features of Angular, including:
 * Observables
 
 
-![dashboard view](README/dashboard_view.png "Dashboard view")
-*Dashboard view - entry point to site*
+<p align="center">
+  <figure>
+    <img src="README/dashboard_view.png" width="350"/>
+    <figcaption>Dashboard view - entry point to the site</figcaption>
+  </figure>
+</p>
 
-![heroes view](README/heroes_view.png "Heroes view")
-*Heroes view - other main navigation page*
+<p align="center">
+  <figure>
+    <img src="README/heroes_view.png" width="350"/>
+    <figcaption>Heroes view - second main navigation page</figcaption>
+  </figure>
+</p>
 
-![details view](README/details_view.png "Details view")
-*Details view*
+<p align="center">
+  <figure>
+    <img src="README/details_view.png" width="350"/>
+    <figcaption>Details view</figcaption>
+  </figure>
+</p>
 
-![heroes search](README/hero_search.png "Heroes search")
-*Live search*
+<p align="center">
+  <figure>
+    <img src="README/hero_search.png" width="350"/>
+    <figcaption>Live search</figcaption>
+  </figure>
+</p>
 
 NOTE: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
