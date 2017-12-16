@@ -1,28 +1,76 @@
 # AngularTourOfHeroesPostgres
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project is a small application built to follow the Tour of Heroes tutorial found on the [Angular.io website](https://angular.io/).
 
-## Development server
+It is meant to show some of the common features of Angular, including:
+* Components
+* Event binding
+* Master / detail architecture
+* Services - from mocks, to web API
+* Routing
+* Observables
 
+Dashboard view - entry point to site
+![dashboard view](README/dashboard_view.png "Dashboard view")
+
+Heroes view - other main navigation page
+![heroes view](README/heroes_view.png "Heroes view")
+
+Details view
+![details view](README/details_view.png "Details view")
+
+Live search
+![heroes search](README/hero_search.png "Heroes search")
+
+NOTE: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+## Getting Started
+This project can be cloned locally, but it will require a configured PostgreSQL database based on the current db settings.
+
+In terminal:
+```
+psql
+create database tourofheroes_dev;
+```
+This will open PostgreSQL is the terminal and create the development database.
+
+### To run via Angular dev server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+The server would need to be run in a separate tab by running `node server.js`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+### Prerequisites
 
-## Build
+All prerequisites are included with the package.json file EXCEPT the PostgreSQL database.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Installing
 
-## Running unit tests
+All requirements (except PostgreSQL) are set up via npm. To install all modules, run `npm install`
 
+After that, mock data can be seeded using knex:
+```
+knex migrate:latest
+knex seed:run
+```
+
+## Running the tests
+Testing is handled by Karma and Protractor
+
+### Unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
+### End to end tests
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Further help
+## Deployment
+Run `ng build`. Build files are stored in a dist/ directory for serving in production.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Built With
+* [Angular](https://angular.io/) - Javascript frontend framework
+* [Node](https://nodejs.org/en/) - Backend server
+* [Express](http://expressjs.com/) - Backend server, routing, middleware
+* [Knex](http://knexjs.org/) - SQL query builder
+* [PostgreSQL](https://www.postgresql.org/) - SQL database
+* [Protractor](http://www.protractortest.org/) - E2E testing for Angular
+* [Karma](https://karma-runner.github.io) - Spectacular test runner for Javascript
