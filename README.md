@@ -13,28 +13,28 @@ It is meant to show some of the common features of Angular, including:
 
 <p align="center">
   <figure>
-    <img src="README/dashboard_view.png" width="350"/>
+    <img src="README/dashboard_view.png" width="900"/>
     <figcaption>Dashboard view - entry point to the site</figcaption>
   </figure>
 </p>
 
 <p align="center">
   <figure>
-    <img src="README/heroes_view.png" width="350"/>
+    <img src="README/heroes_view.png" height="400"/>
     <figcaption>Heroes view - second main navigation page</figcaption>
   </figure>
 </p>
 
 <p align="center">
   <figure>
-    <img src="README/details_view.png" width="350"/>
+    <img src="README/details_view.png" height="300"/>
     <figcaption>Details view</figcaption>
   </figure>
 </p>
 
 <p align="center">
   <figure>
-    <img src="README/hero_search.png" width="350"/>
+    <img src="README/hero_search.png" width="600"/>
     <figcaption>Live search</figcaption>
   </figure>
 </p>
