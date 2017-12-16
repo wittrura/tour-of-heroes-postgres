@@ -10,17 +10,18 @@ It is meant to show some of the common features of Angular, including:
 * Routing
 * Observables
 
-Dashboard view - entry point to site
+
 ![dashboard view](README/dashboard_view.png "Dashboard view")
+*Dashboard view - entry point to site*
 
-Heroes view - other main navigation page
 ![heroes view](README/heroes_view.png "Heroes view")
+*Heroes view - other main navigation page*
 
-Details view
 ![details view](README/details_view.png "Details view")
+*Details view*
 
-Live search
 ![heroes search](README/hero_search.png "Heroes search")
+*Live search*
 
 NOTE: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
